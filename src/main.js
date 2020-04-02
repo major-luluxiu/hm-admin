@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
+
+// 完整导入element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
+// 基础样式
+import './styles/base.css'
 
 // 全局引入element-ui
 Vue.use(ElementUI)

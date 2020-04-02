@@ -75,14 +75,16 @@ export default {
         await this.$refs.form.validate()
 
         const res = await this.$axios.post('/login', this.form)
-        console.log(res)
         const { statusCode, data, message } = res.data
         if (statusCode == 200) {
+          // 保存验证信息
           localStorage.setItem('token', data.token)
+          // 保存个人信息
+          localStorage.setItem('user', JSON.stringify(data.user))
           this.$router.push('/')
-          this.$message(message)
-        } else if (statusCode === 401) {
-          this.$message(message)
+          this.$message.success(message)
+        } else {
+          this.$message.error(message)
         }
       } catch (err) {
         this.$message(err)
@@ -95,7 +97,7 @@ export default {
 <style lang="less" scoped>
 .el-form {
   width: 400px;
-  margin: 200px auto;
+  margin: 150px auto;
   border: 1px solid #ccc;
   padding: 20px;
   .el-button:first-child {
