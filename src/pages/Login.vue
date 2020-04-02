@@ -76,7 +76,17 @@ export default {
 
         const res = await this.$axios.post('/login', this.form)
         console.log(res)
-      } catch (err) {}
+        const { statusCode, data, message } = res.data
+        if (statusCode == 200) {
+          localStorage.setItem('token', data.token)
+          this.$router.push('/')
+          this.$message(message)
+        } else if (statusCode === 401) {
+          this.$message(message)
+        }
+      } catch (err) {
+        this.$message(err)
+      }
     }
   }
 }
