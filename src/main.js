@@ -9,6 +9,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 基础样式
 import './styles/base.css'
 
+// 过滤器
+import moment from 'moment'
+Vue.filter('date', function(input) {
+  return moment(input).format('YYYY-MM-DD')
+})
+
 // 全局引入element-ui
 Vue.use(ElementUI)
 

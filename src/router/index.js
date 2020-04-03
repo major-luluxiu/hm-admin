@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../pages/Login.vue'
 import Home from '../pages/Home.vue'
+import Post from '../pages/Post.vue'
+import Publish from '../pages/Publish.vue'
 
 Vue.use(VueRouter)
 
@@ -9,7 +11,14 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     { path: '/login', name: 'login', component: Login },
-    { path: '/', name: 'home', component: Home }
+    {
+      path: '/',
+      component: Home,
+      children: [
+        { path: '/', name: 'post', component: Post },
+        { path: '/publish', name: 'publish', component: Publish }
+      ]
+    }
   ]
 })
 
