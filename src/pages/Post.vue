@@ -2,7 +2,7 @@
   <div class="post">
     <!-- 面包屑导航 -->
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item>首页</el-breadcrumb-item>
+      <el-breadcrumb-item to="/">首页</el-breadcrumb-item>
       <el-breadcrumb-item>文章列表</el-breadcrumb-item>
     </el-breadcrumb>
 
